@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<main class="flex flex-col justify-center items-center min-h-screen bg-gray-100 p-4 font-sans">
+  
+  <div id="alert" class="fixed top-5 bg-green-500 text-white px-6 py-3 rounded-full shadow-lg transform -translate-y-20 transition-all duration-500 opacity-0 pointer-events-none">
+    Agora você está seguindo o Thiago!
+  </div>
+
+  <article class="max-w-sm w-full bg-white rounded-2xl shadow-xl p-6 transition-all">
+    <header class="flex items-center space-x-4">
+      <figure class="h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold ring-4 ring-blue-50">
+        TC
+      </figure>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">Thiago Shimabukuro Cortez</h2>
+        <p class="text-sm text-blue-600 font-semibold">Desenvolvedor Front-end</p>
+      </div>
+    </header>
+
+    <section class="mt-4">
+      <p class="text-gray-600 text-sm">
+        Estou estudando tailwind para desernvolver rápidas páginas em html!
+      </p>
+    </section>
+
+    <footer class="mt-6 flex gap-3">
+      <button id="btn-seguir" type="button" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition-all active:scale-95">
+        Seguir
+      </button>
+      <button type="button" class="flex-1 border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition-all">
+        Mensagem
+      </button>
+    </footer>
+  </article>
+
+</main>
+
+<script>
+  const btn = document.getElementById('btn-seguir');
+  const alertBox = document.getElementById('alert');
+
+  btn.addEventListener('click', () => {
+    alertBox.classList.remove('-translate-y-20', 'opacity-0');
+    alertBox.classList.add('translate-y-0', 'opacity-100');
+
+    btn.innerText = 'Seguindo';
+    btn.classList.replace('bg-blue-600', 'bg-gray-800');
+
+    setTimeout(() => {
+      alertBox.classList.replace('translate-y-0', '-translate-y-20');
+      alertBox.classList.replace('opacity-100', 'opacity-0');
+    }, 3000);
+  });
+</script>
+</body>
+</html>
