@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Formulário</title>
+</head>
+
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-6">
+    <form class="max-w-3xl space-y-4 w-full" id="formulario">
+        <h1 class="font-bold text-lg">Fale Conosco</h1>
+        <div>
+            <label class="block text-sm font-medium mb-1">Nome</label>
+            <input id="nome" class="w-full border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-red-600" type="text" placeholder="Digite seu nome">
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1">E-Mail</label>
+            <input id="email" class="w-full border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-red-600" type="text" placeholder="Digite seu e-mail">
+        </div>
+        <div>
+            <label class="block text-sm font-medium mb-1">Mensagem</label>
+            <textarea id="mensagem" class="w-full border border-slate-300 p-3 h-32 focus:outline-none focus:ring-2 focus:ring-red-600" placeholder="Escreva sua mensagem"></textarea>    
+            <p id="resposta" class="text-sm font-bold mt-2"></p>
+            <button type="submit" class="bg-slate-300 px-5 py-3 rounded-lg hover:bg-slate-400 transition-colors">Enviar</button>
+        </div>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const nome = document.getElementById("nome");
+        const email = document.getElementById("email");
+        const mensagem = document.getElementById("mensagem");
+        const resposta = document.getElementById("resposta");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const nomeVar = nome.value.trim();
+            const emailVar = email.value.trim();
+            const mensagemVar = mensagem.value.trim();
+            
+            if (nomeVar === "" || emailVar === "" || mensagemVar === "") {
+                resposta.textContent = "Preencha todos os campos.";
+                resposta.className = "text-sm font-bold text-red-600";
+                return; 
+            }
+
+            if (!emailVar.includes("@") || !emailVar.includes(".")) {
+                resposta.textContent = "Preencha o E-mail corretamente.";
+                resposta.className = "text-sm font-bold text-red-600";
+                return; 
+            }
+
+            resposta.textContent = "Formulário enviado com sucesso!";
+            resposta.className = "text-sm font-bold text-green-600";
+
+            formulario.reset();
+        });
+    </script>
+</body>
+</html>

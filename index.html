@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Começando Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-200 p-10">
+   <!--
+    <h1 class="text-base font-bold text-blue-600 underline">Olá Tailwind!</h1>
+    -->
+<header class="max-w-4xl mx-auto bg-white rounded-2xl shadow p-8 mb-4" >
+    <h1 class="text-2xl font-bold mb-6 text-green-400">Menu com Flexbox</h1>
+    
+    <nav class="p-4 text-green-800 bg-slate-200">
+        <div class="flex justify-between items-center">
+            <span class="font-bold">Minha Marca</span>
+            <button id="btnMenu" class="md:hidden text-2xl">---</button>
+            <ul class="hidden md:flex gap-4">
+                <li><a href="#" class="hover:text-green-400">HOME</a></li>
+                <li><a href="#" class="hover:text-green-400">Sobre Nós</a></li>
+                <li><a href="#" class="hover:text-green-400">Produtos</a></li>
+                <li><a href="#" class="hover:text-green-400">Serviços</a></li>
+            </ul>    
+        </div>
+        <ul id="menuMobile" class="hidden md:hidden flex-col mt-4 gap-4">
+            <li><a href="#" class="hover:text-green-400">HOME</a></li>
+            <li><a href="#" class="hover:text-green-400">Sobre Nós</a></li>
+            <li><a href="#" class="hover:text-green-400">Produtos</a></li>
+            <li><a href="#" class="hover:text-green-400">Serviços</a></li>
+        </ul>    
+    </nav>
+</header> 
+<script>
+    let botao = document.getElementById("btnMenu");
+    let menuMobile = document.getElementById("menuMobile");
+    botao.addEventListener("click",function() {
+        menuMobile.classList.toggle("hidden");
+        menuMobile.classList.toggle("flex");
+    });
+</script>
+
+<section class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg shadow-blue-800">
+   <p class="text-xl text-rose-400 font-bold">
+        HORÁRIO DO INTERVALO
+   </p>
+   <h1 class="text-xl font-bold mt-4">
+        TOMAR CAFÉ
+   </h1>
+   <p class="mt-2 text-lg text-gray-800 leading-6">
+    Expresso Latte - <span
+     class="text-base text-emerald-500 font-semibold">au au</span>
+    <br> PingaTo -<span class="italic text-sm"> miau miau</span>
+    <br> Capucsino - <span class="underline text-xs"> blein blein</span>
+   </p>
+</section>
+<section class="max-w-2xl mx-auto bg-white p-8 mt-4 rounded-xl shadow-lg shadow-emerald-800">
+    <div class="text-center text-lg text-yellow-600 shadow-lg bg-blue-100 
+    shadow-red-800 border border-blue-400 rounded-xl p-1 px-4">
+    <h2 class="font-bold">CARTÃO</h2>
+    <p class="mt-2 mb-6 text-gray-500">Testando cartões
+         com botão</p>
+    <button class="bg-blue-600 text-white px-5 py-3 
+    rounded-lg hover:bg-yellow-600 transition">Saiba Mais</button>     
+    </div>
+</section>
+<section class="max-w-5xl mx-auto">
+    <h1 class="font-bold text-3xl mt-8 mb-4 text-center"> Trabalhando com Grid</h1>
+    <div class="grid grid-cols-2 gap-4">
+        <div class="bg-blue-500 h-32"></div>
+        <div class="bg-emerald-500 h-32"></div>
+        <div class="bg-red-500 h-32"></div>
+        <div class="bg-yellow-500 h-32"></div>
+        <div class="bg-gray-500 h-32"></div>
+        <div class="bg-orange-500 h-32"></div>  
+    </div>
+</section>
+</body>
+</html>
